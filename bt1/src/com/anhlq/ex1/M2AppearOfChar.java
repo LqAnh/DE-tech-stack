@@ -2,7 +2,7 @@ package com.anhlq.ex1;
 
 import java.util.*;
 
-public class AppearOfChar {
+public class M2AppearOfChar {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         System.out.print("Enter a string: ");

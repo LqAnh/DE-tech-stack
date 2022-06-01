@@ -2,7 +2,7 @@ package com.anhlq.ex1;
 
 import java.util.Scanner;
 
-public class PrimeNumber {
+public class M4PrimeNumber {
     public static void main(String[] args) {
         Scanner sc=new Scanner(System.in);
         System.out.println("Enter a number");

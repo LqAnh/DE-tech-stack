@@ -2,7 +2,7 @@ package com.anhlq.ex1;
 
 import java.util.Scanner;
 
-public class Circle {
+public class M6Circle {
 
     public static void main(String[] args) {
         // Declare variable for radius and distance

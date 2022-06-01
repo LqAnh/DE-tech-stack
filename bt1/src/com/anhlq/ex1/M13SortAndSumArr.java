@@ -2,7 +2,7 @@ package com.anhlq.ex1;
 
 import java.util.Arrays;
 
-public class SortAndSumArr {
+public class M13SortAndSumArr {
     public static void main(String[] args) {
         // input array
         int[] arr = {4, 5, 1, 2, 3, 3, 3,4,5,4,52,12,312,-10,4124,};
