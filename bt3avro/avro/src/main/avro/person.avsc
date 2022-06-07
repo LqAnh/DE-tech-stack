@@ -1,0 +1,18 @@
+{"namespace": "com.bigdatums.avro",
+  "type": "record",
+  "name": "Person",
+  "fields": [
+    {"name": "id", "type": "int"},
+    {"name": "username",  "type": ["string", "null"]},
+    {"name": "email_address",  "type": ["string", "null"]},
+    {"name": "phone_number",  "type": ["string", "null"]},
+    {"name": "sex",  "type": ["string", "null"]},
+    {"name": "address", "type": {
+      "type" : "record",
+      "name" : "Address",
+      "fields" : [
+        {"name": "streetaddress", "type": "string"},
+        {"name": "city", "type": "string"}
+      ]}}
+  ]
+}
