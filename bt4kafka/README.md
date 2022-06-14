@@ -1,10 +1,15 @@
 Some important config in AppConfigs class: 
+
+
     --bootstrap-server 172.17.80.20:9092
     topic name: customer_anhlq36
 
+
+
 Workflow:
+
+
     Producer: Read csv file, send each line read. 
-    
     
     
     Consumer: An infinity loop. 
