@@ -21,7 +21,7 @@ public class Producer {
 
         KafkaProducer<String, String> producer = new KafkaProducer<>(props);
         try {
-            File myObj = new File("data/customer.csv");
+            File myObj = new File(AppConfigs.inputFile);
             Scanner myReader = new Scanner(myObj);
             while (myReader.hasNextLine()) {
                 String data = myReader.nextLine();

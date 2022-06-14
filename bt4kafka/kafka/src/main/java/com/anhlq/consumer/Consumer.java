@@ -27,14 +27,15 @@ public class Consumer {
         consumer.subscribe(List.of(AppConfigs.topicName));
 
         try {
+            System.out.println("Reading topic");
             while (true) {
                 ConsumerRecords<String, String> records = consumer.poll(100);
                 for (ConsumerRecord<String, String> record : records) {
                     System.out.println(record.value());
-                    //check id exist
+                    //get all id exist in csv output file
                     try{
-                        String file = "data/output.csv";
-                        java.util.List<Customer> beans1 = new CsvToBeanBuilder(new FileReader(file)).withType(Customer.class).build().parse();
+                        //String file = "data/output.csv";
+                        java.util.List<Customer> beans1 = new CsvToBeanBuilder(new FileReader(AppConfigs.outputFile)).withType(Customer.class).build().parse();
                         for (Customer c:beans1){
                             listId.add(c.getId());
                         }
@@ -42,13 +43,13 @@ public class Consumer {
                         e.printStackTrace();
                     }
 
-                    //check orderNum and age
+                    //check orderNum and age and id exist
                     java.util.List<Customer> beans = new CsvToBeanBuilder(new StringReader(record.value())).withType(Customer.class).build().parse();
                     for (Customer c : beans) {
                         if (!listId.contains(c.getId()) && c.getAge() < 20 && c.getNumOrder()>100 ){
-                            File file1 = new File("data/output.csv");
+                            File file1 = new File(AppConfigs.outputFile);
                             try {
-                                // create FileWriter object with file as parameter
+                                // create FileWriter to write to output file
                                 FileWriter pw = new FileWriter(file1, true);
 
                                 pw.append(String.valueOf(c.getId())).append(",");
