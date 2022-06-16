@@ -1,3 +1,10 @@
+Apache Kafka is installed at:
+
+
+/opt/kafka_2.12-3.2.0
+
+
+
 Some important config in AppConfigs class: 
 
 

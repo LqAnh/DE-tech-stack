@@ -1,4 +1,4 @@
-package com.anhlq.consumer;
+package com.anhlq.model;
 
 import com.opencsv.bean.CsvBindByPosition;
 import lombok.Getter;

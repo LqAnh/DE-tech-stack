@@ -1,6 +1,7 @@
 package com.anhlq.consumer;
 
 import com.anhlq.common.AppConfigs;
+import com.anhlq.model.Customer;
 import com.opencsv.bean.CsvToBeanBuilder;
 import com.sun.tools.javac.util.List;
 import org.apache.kafka.clients.consumer.ConsumerConfig;
@@ -34,7 +35,6 @@ public class Consumer {
                     System.out.println(record.value());
                     //get all id exist in csv output file
                     try{
-                        //String file = "data/output.csv";
                         java.util.List<Customer> beans1 = new CsvToBeanBuilder(new FileReader(AppConfigs.outputFile)).withType(Customer.class).build().parse();
                         for (Customer c:beans1){
                             listId.add(c.getId());

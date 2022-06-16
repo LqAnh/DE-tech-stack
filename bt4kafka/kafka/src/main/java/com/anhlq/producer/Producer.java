@@ -6,10 +6,8 @@ import org.apache.kafka.clients.producer.ProducerConfig;
 import org.apache.kafka.clients.producer.ProducerRecord;
 import org.apache.kafka.common.serialization.StringSerializer;
 
-import java.io.File;
-import java.io.FileNotFoundException;
+import java.io.*;
 import java.util.Properties;
-import java.util.Scanner;
 
 public class Producer {
     public static void main(String[] args) {
@@ -20,18 +18,19 @@ public class Producer {
         props.put(ProducerConfig.VALUE_SERIALIZER_CLASS_CONFIG, StringSerializer.class.getName());
 
         KafkaProducer<String, String> producer = new KafkaProducer<>(props);
+        BufferedReader reader = null;
+
         try {
-            File myObj = new File(AppConfigs.inputFile);
-            Scanner myReader = new Scanner(myObj);
-            while (myReader.hasNextLine()) {
-                String data = myReader.nextLine();
-                producer.send(new ProducerRecord<>(AppConfigs.topicName, null, data));
-                System.out.println(data);
+            reader = new BufferedReader(new FileReader(AppConfigs.inputFile));
+            reader.readLine();
+            String line1 = null;
+            while ((line1 = reader.readLine()) != null) {
+                System.out.println(line1);
+                producer.send(new ProducerRecord<>(AppConfigs.topicName, null, line1));
             }
-            myReader.close();
+            reader.close();
             producer.close();
-        } catch (FileNotFoundException e) {
-            System.out.println("An error occurred.");
+        } catch (IOException e) {
             e.printStackTrace();
         }
     }
