@@ -1,0 +1,16 @@
+Bài tập :
+1. Viết job map reduce bằng code java, thực hiện đếm số lần xuất hiện của một từ trong 1 file text (truyền đường dẫn vào argument lúc chạy job), lưu ra 1 file text theo từng dòng theo format : <word>,<frequency>. Lưu ý mỗi từ được tách nhau bởi dấu cách. loại bỏ dấu và các kí tự đặc biệt.
+2. Cho 1 tập các số nguyên > 0, viết job map reduce tính distinct của tập số nguyên này. Đầu vào là 1 file text với các số cách nhau bởi dấu xuống dòng, đầu ra theo dạng (0, count), với count là số lượng các số có trong tập số nguyên sau khi đã distinct.
+data bài 2 :
+3. Cho 2 table theo dạng file .csv. Sử dụng mapreduce để join 2 table people và salary qua trường job.
+- data bài 3 :
+Bài 1 và bài 2 khá cơ bản và giống nhau nên a sẽ ko đưa ra gợi ý, còn về bài số 3 thì a sẽ đưa thêm 1 vài gợi ý cũng như tiêu chí đánh giá nhé.
+Về cơ bản các e có thể giải theo 3 hướng sau :
+1. Ko shuffle, join tại map phrase : Vì table salary rất nhỏ, nên các em có thể set nó vào trong code và filter trực tiếp với dữ liệu trên từng 1 node, nhưng có nhược điểm là ko mang tính tổng quát, chỉ dùng được với bài này, dù ưu điểm là đơn giản và nhanh ko gây ra shuffle => độ ưu tiên thấp nhất.
+2. Có shuffle, join tại reduce phrase nhưng map output value là text : Cách này có thể áp dụng được với dữ liệu lớn, đơn giản hơn vì đầu ra của các mapper chỉ là 1 kiểu dữ liệu, tuy nhiên cách này hơi thủ công, do phải concat text => độ ưu tiên thấp thứ 2.
+3. Có shuffle, join tại reduce phrase nhưng sử dụng GenericWritable : tham khảo ở link  😉 Một cách tổng quát, có thể áp dụng cho nhiều bài toán, model rõ ràng, dễ đọc hiểu => Độ ưu tiên cao nhất.
+Ngoài \\\\ \\\\  ra vì đầu ra a muốn xuất ra file với dạng csv nên a muốn nó có header (tên field) trong mỗi file (nếu em sử dụng nhiều reduce tasks) nên nếu có cái này cũng sẽ được cộng thêm điểm nhé.
+
+Đây là 3 hướng mà tạm thời a có thể nghĩ ra, rất hoan nghênh các cách giải mới lạ hơn, hoặc cách tối ưu sử dụng hàm reduce tốt hơn :D.
+
+Đây là một bài dạng prototype, anh ko yêu cầu các em phải giải nhanh, mà muốn các em hiểu về map reduce hơn, nên dù nhanh và đúng cũng chưa chắc được đánh giá tốt nhé, vì a muốn xem cách các em code cũng như hiểu về map reduce đến đâu.

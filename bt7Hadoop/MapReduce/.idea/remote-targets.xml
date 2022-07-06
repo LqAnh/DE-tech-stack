@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="RemoteTargetsManager">
+    <targets>
+      <target name="hadoop@172.17.80.21:22" type="ssh/sftp" uuid="cbd8159d-162a-48da-ab68-64e5a117a0d1">
+        <config>
+          <option name="projectRootOnTarget" value="/home/hadoop/anhlq36/bai1WC" />
+          <option name="serverName" value="hadoop@172.17.80.21:22 password" />
+          <option name="useRsync" value="true" />
+        </config>
+        <ContributedStateBase type="JavaLanguageRuntime">
+          <config>
+            <option name="homePath" value="/usr/lib/jvm/java-8-openjdk-amd64" />
+          </config>
+        </ContributedStateBase>
+      </target>
+    </targets>
+  </component>
+</project>
