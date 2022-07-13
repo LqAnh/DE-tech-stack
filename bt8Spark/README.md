@@ -1,5 +1,7 @@
-output path for big file in hdfs
+output path for result of big file in hdfs
+
     /user/anhlq36/big_file
 
-output path for small file in hdfs
+output path for result of small file in hdfs
+
     /user/anhlq36/small_file
