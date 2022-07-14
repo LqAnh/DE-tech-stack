@@ -7,11 +7,18 @@ output path for result of small file in hdfs
     /user/anhlq36/small_file
     
     
+    
 command to run
+
+
 inside folder /home/hadoop/anhlq36/spark
-    small file:
+
+
+
+small file:
 
         spark-submit --deploy-mode client  --class SmallProcess spark.jar
-    big file:
+        
+big file:
 
         spark-submit --deploy-mode client  --class BigProcess spark.jar
