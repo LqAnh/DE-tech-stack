@@ -9,11 +9,9 @@ output path for result of small file in hdfs
     
 command to run
 inside folder /home/hadoop/anhlq36/spark
-
     small file:
 
         spark-submit --deploy-mode client  --class SmallProcess spark.jar
-    
     big file:
 
         spark-submit --deploy-mode client  --class BigProcess spark.jar
