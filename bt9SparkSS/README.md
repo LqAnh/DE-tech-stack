@@ -24,5 +24,3 @@ Câu lệnh đồng bộ dữ liệu trên hdfs với Hive metastore
 
     MSCK REPAIR TABLE data_traking_anhlq36;
 Khi chạy lệnh `SELECT COUNT(*) FROM data_traking_anhlq36;` số lượng bản ghi trả về là 1000 bằng số lượng bản ghi gửi đi tại producer
-
-![](../../../../../../var/folders/4k/nbp13h0145n0q5rnrz0mxqnc0000gn/T/TemporaryItems/NSIRD_screencaptureui_fJQsYH/Screen Shot 2022-07-23 at 10.09.59.png)
