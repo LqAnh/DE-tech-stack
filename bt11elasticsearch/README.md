@@ -74,6 +74,19 @@ Chạy file process.py sử dụng pyvi tokenize các từ tiếng việt, sửa
 
     curl -XPOST "http://172.17.80.25:9200/_bulk?pretty" -H 'Content-Type: application/json' --data-binary @/home/hadoop/anhlq36/data.json
 
+Tạo index bài 3:
+
+    PUT title_suggest_anhlq36
+    {
+        "mappings": {
+            "properties" : {
+                "suggest_title" : {
+                    "type" : "completion"
+                }
+            }
+        }
+    }
+
 Query bài 3:
 
         GET /title_suggest_anhlq36/_search
